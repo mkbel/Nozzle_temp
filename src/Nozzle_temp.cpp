@@ -170,7 +170,15 @@ int main() {
     // cool down with full print fan
     temp_hotend[0].target = 0.f;
     fan_speed[0] = 255.f;
-    for (int i = 0; i < sample_frequency * 200; ++i) {
+    for (int i = 0; i < sample_frequency * 110; ++i) {
+        (void) get_model_output_hotend(last_target, expected_temp, 0);
+        cout << last_target << endl;
+    }
+
+    // heat up at 86% P(rated) with disabled fan
+    temp_hotend[0].target = 215.f;
+    fan_speed[0] = 0.f;
+    for (int i = 0; i < sample_frequency * 110; ++i) {
         (void) get_model_output_hotend(last_target, expected_temp, 0);
         cout << last_target << endl;
     }
