@@ -164,7 +164,7 @@ int main() {
     fan_speed[0] = 0.f;
     for (int i = 0; i < sample_frequency * 110; ++i) {
         (void) get_model_output_hotend(last_target, expected_temp, 0);
-        cout << expected_temp << endl;
+        cout << last_target << endl;
     }
 
     // cool down with full print fan
@@ -172,7 +172,7 @@ int main() {
     fan_speed[0] = 255.f;
     for (int i = 0; i < sample_frequency * 200; ++i) {
         (void) get_model_output_hotend(last_target, expected_temp, 0);
-        cout << expected_temp << endl;
+        cout << last_target << endl;
     }
 
 	return 0;
